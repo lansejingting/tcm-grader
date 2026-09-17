@@ -1,0 +1,1414 @@
+{
+  "metadata": {
+    "dataset": "NB-TCM-CHM",
+    "version": "1.0",
+    "created": "2026-09-17",
+    "total_herbs": 20,
+    "standard_sources": [
+      "SB/T 11173-2016 中药材商品规格等级通则",
+      "T/CACM 1021-2018 中药材商品规格等级系列团体标准",
+      "中国药典（2020/2025版）",
+      "GB/T 18672-2014 枸杞"
+    ],
+    "visual_judgment_legend": {
+      "high": "图片可直接判定",
+      "medium": "需切面图或辅助信息",
+      "low": "图片无法判定，不参与评分"
+    }
+  },
+  "herbs": [
+    {
+      "id": "herb_01",
+      "name_cn": "枸杞子",
+      "name_en": "Wolfberry Fruit",
+      "name_latin": "Lycii Fructus",
+      "pharmacopoeia_description": "呈类纺锤形或椭圆形，略扁稍皱缩；表面红色、紫红色或枣红色；果肉柔软，有光泽；味甜。",
+      "standards": ["GB/T 18672-2014", "T/CACM 1021.50-2018"],
+      "grades": [
+        {
+          "grade": "特优级",
+          "grade_code": "S",
+          "criteria": {
+            "size": "颗粒大，每50g≤280粒，百粒重≥17.8g",
+            "color": "果皮鲜红或紫红色",
+            "plumpness": "饱满有光泽",
+            "defect_rate": "不完善粒≤1.0%"
+          },
+          "visual_conditions": {
+            "color_range": ["鲜红色", "紫红色"],
+            "shape": "纺锤形，饱满",
+            "surface": "有自然光泽",
+            "size_reference": "大颗粒，相对参照物明显偏大"
+          }
+        },
+        {
+          "grade": "特级",
+          "grade_code": "A",
+          "criteria": {
+            "size": "每50g≤370粒，百粒重≥13.5g",
+            "color": "果皮鲜红或紫红色",
+            "plumpness": "较饱满",
+            "defect_rate": "不完善粒≤1.5%"
+          },
+          "visual_conditions": {
+            "color_range": ["鲜红色", "紫红色"],
+            "shape": "纺锤形，较饱满",
+            "surface": "有光泽",
+            "size_reference": "中大颗粒"
+          }
+        },
+        {
+          "grade": "甲级",
+          "grade_code": "B",
+          "criteria": {
+            "size": "每50g≤580粒，百粒重≥8.6g",
+            "color": "红色或暗红色",
+            "plumpness": "尚饱满",
+            "defect_rate": "不完善粒≤3.0%"
+          },
+          "visual_conditions": {
+            "color_range": ["红色", "暗红色"],
+            "shape": "纺锤形，尚饱满",
+            "surface": "光泽一般",
+            "size_reference": "中等颗粒"
+          }
+        },
+        {
+          "grade": "乙级",
+          "grade_code": "C",
+          "criteria": {
+            "size": "每50g≤900粒，百粒重≥5.6g",
+            "color": "颜色可偏暗",
+            "plumpness": "允许少量干瘪",
+            "defect_rate": "不完善粒≤3.0%"
+          },
+          "visual_conditions": {
+            "color_range": ["暗红色", "枣红色", "暗褐色"],
+            "shape": "纺锤形，可见干瘪",
+            "surface": "光泽较差",
+            "size_reference": "小颗粒"
+          }
+        },
+        {
+          "grade": "等外品",
+          "grade_code": "D",
+          "criteria": {
+            "size": "每50g>900粒",
+            "color": "暗褐或发黑",
+            "plumpness": "严重干瘪",
+            "defect_rate": "不完善粒>3.0%"
+          },
+          "visual_conditions": {
+            "color_range": ["暗褐色", "黑色"],
+            "shape": "严重干瘪皱缩",
+            "surface": "无光泽",
+            "size_reference": "极小颗粒"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颗粒大小", "method": "相对参照物估算", "judgment": "high"},
+        {"dimension": "颜色", "method": "鲜红/紫红为优，暗褐/发黑为劣", "judgment": "high"},
+        {"dimension": "饱满度", "method": "纺锤形饱满为优，干瘪瘦小为劣", "judgment": "high"},
+        {"dimension": "表面光泽", "method": "有自然光泽为优，暗淡无光为劣", "judgment": "high"},
+        {"dimension": "果柄痕", "method": "白点是否清晰可见", "judgment": "high"},
+        {"dimension": "结块黏连", "method": "是否存在结块、黏连现象", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "油果", "description": "深褐色油浸状，表面发亮"},
+        {"defect": "黑变粒", "description": "整粒变黑，失去正常红色"},
+        {"defect": "虫蛀粒", "description": "可见虫孔或虫粪"},
+        {"defect": "霉变", "description": "表面出现白色或绿色霉斑"},
+        {"defect": "硫磺熏制", "description": "颜色过于鲜红均匀，不自然"}
+      ]
+    },
+    {
+      "id": "herb_02",
+      "name_cn": "五味子",
+      "name_en": "Schisandra Fruit",
+      "name_latin": "Schisandrae Chinensis Fructus",
+      "pharmacopoeia_description": "呈不规则球形或扁球形，直径5~8mm；表面红色、紫红色或暗红色，皱缩，显油润；果肉柔软；内含肾形种子1~2粒。",
+      "standards": ["T/CACM 1021.42-2018"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "红色、暗红色或紫红色，质油润",
+            "flesh": "肉厚",
+            "shrinkage_rate": "干瘪率≤2%",
+            "defects": "不走油、无虫蛀霉变、杂质≤3%"
+          },
+          "visual_conditions": {
+            "color_range": ["红色", "暗红色", "紫红色"],
+            "shape": "球形或扁球形，饱满",
+            "surface": "皱缩但显油润光泽",
+            "size_reference": "直径5~8mm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "黑红色或出现白霜",
+            "flesh": "肉较薄",
+            "shrinkage_rate": "干瘪率≤20%",
+            "defects": "无虫蛀霉变"
+          },
+          "visual_conditions": {
+            "color_range": ["黑红色", "暗紫红色"],
+            "shape": "球形，可见干瘪",
+            "surface": "油润感减弱，可能出现白霜",
+            "size_reference": "直径偏小"
+          }
+        },
+        {
+          "grade": "等外品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色或发黑",
+            "flesh": "肉薄",
+            "shrinkage_rate": "干瘪率>20%",
+            "defects": "有虫蛀或霉变"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色", "黑色"],
+            "shape": "严重干瘪皱缩",
+            "surface": "无油润感",
+            "size_reference": "明显偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "紫红/红褐色为优，黑红/暗棕为次", "judgment": "high"},
+        {"dimension": "油润感", "method": "表面有油润光泽为优，干枯无光为劣", "judgment": "high"},
+        {"dimension": "饱满度", "method": "球形饱满为优，干瘪皱缩严重为劣", "judgment": "high"},
+        {"dimension": "干瘪粒比例", "method": "估算干瘪粒占比", "judgment": "high"},
+        {"dimension": "白霜识别", "method": "区分正常白霜与霉变白霜", "judgment": "medium"}
+      ],
+      "common_defects": [
+        {"defect": "干瘪粒超标", "description": "干瘪率超过等级允许范围"},
+        {"defect": "走油", "description": "颜色变深变黑，表面呈油浸状"},
+        {"defect": "霉变", "description": "表面出现霉斑，需与正常白霜区分"},
+        {"defect": "枝梗残留", "description": "混有果柄、枝梗等杂质"}
+      ]
+    },
+    {
+      "id": "herb_03",
+      "name_cn": "山楂",
+      "name_en": "Hawthorn Fruit",
+      "name_latin": "Crataegi Fructus",
+      "pharmacopoeia_description": "药材为圆形片，皱缩不平，直径1~2.5cm，厚0.2~0.4cm；外皮红色，具皱纹，有灰白色小斑点；果肉深黄色至浅棕色。",
+      "standards": ["T/CACM 1021.16-2018"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "slice_diameter": "≥2cm",
+            "shape": "圆形中间片为主",
+            "surface": "切面平整，大小匀整",
+            "skin_color": "外皮红色"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮红色", "果肉深黄色至浅棕色"],
+            "shape": "圆形切片，中间片为主",
+            "surface": "切面平整",
+            "size_reference": "直径≥2cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "slice_diameter": "≥1.5cm",
+            "shape": "兼有边片",
+            "surface": "切面较平整，偶见破损片",
+            "skin_color": "外皮红色至暗红色"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮红色至暗红色", "果肉浅棕色"],
+            "shape": "圆形切片，中间片与边片混合",
+            "surface": "切面较平整",
+            "size_reference": "直径≥1.5cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "slice_diameter": "≥1.0cm",
+            "shape": "以边片为主",
+            "surface": "切面欠平整，少量破损片",
+            "skin_color": "外皮暗红色至棕色"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮暗红色至棕色", "果肉棕色至褐色"],
+            "shape": "边片为主，形态不规则",
+            "surface": "切面欠平整",
+            "size_reference": "直径≥1.0cm"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "切片直径", "method": "估算切片大小", "judgment": "high"},
+        {"dimension": "中间片vs边片比例", "method": "中间片（含核区）为优，边片为次", "judgment": "high"},
+        {"dimension": "外皮颜色", "method": "红色为优，浅棕/深棕为陈货", "judgment": "high"},
+        {"dimension": "果肉颜色", "method": "深黄色为优，深棕/褐色为陈货", "judgment": "high"},
+        {"dimension": "切面平整度", "method": "平整为优，不平整为劣", "judgment": "high"},
+        {"dimension": "破损片比例", "method": "估算破损片占比", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "陈货", "description": "外皮浅棕至深棕，果肉深棕至褐色"},
+        {"defect": "破损片过多", "description": "切片不完整，碎裂严重"},
+        {"defect": "杂质", "description": "混有果核、果柄、碎末等"}
+      ]
+    },
+    {
+      "id": "herb_04",
+      "name_cn": "砂仁",
+      "name_en": "Amomum Fruit",
+      "name_latin": "Amomi Fructus",
+      "pharmacopoeia_description": "呈卵圆形或椭圆形，有不明显三棱；表面棕褐色，密生刺状突起；种子成团；气芳香浓烈。",
+      "standards": ["T/CACM 1021.20-2018"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "size": "每100g≤170粒",
+            "seed_state": "果皮与种子团紧贴，籽粒饱满，无瘪瘦果",
+            "split_rate": "炸裂果率≤5%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色", "紫褐色"],
+            "shape": "卵圆形，三棱不明显",
+            "surface": "密生刺状突起",
+            "size_reference": "大颗粒，每100g≤170粒"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "size": "每100g 170~330粒",
+            "seed_state": "果皮与种子团有缝隙，少量瘪瘦果",
+            "split_rate": "炸裂果率≤10%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色"],
+            "shape": "卵圆形",
+            "surface": "刺状突起较密",
+            "size_reference": "中等颗粒"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "size": "每100g≥330粒",
+            "seed_state": "瘪瘦果较多（≤25%）",
+            "split_rate": "炸裂果率≤15%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色", "灰棕色"],
+            "shape": "卵圆形，偏小",
+            "surface": "刺状突起较稀",
+            "size_reference": "小颗粒"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "果实大小", "method": "估算颗粒密度（每100g粒数）", "judgment": "high"},
+        {"dimension": "表面刺状突起", "method": "密集程度", "judgment": "high"},
+        {"dimension": "果皮与种子团紧密度", "method": "有无缝隙", "judgment": "medium"},
+        {"dimension": "种子饱满度", "method": "通过外形判断", "judgment": "medium"},
+        {"dimension": "炸裂果比例", "method": "估算开裂果实占比", "judgment": "high"},
+        {"dimension": "颜色", "method": "棕褐/紫褐色为优", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "炸裂果过多", "description": "果皮开裂，种子外露"},
+        {"defect": "瘪瘦果", "description": "果实干瘪，体积小，重量轻"},
+        {"defect": "种子干瘪", "description": "种子不饱满"},
+        {"defect": "虫蛀", "description": "果面可见虫孔"}
+      ]
+    },
+    {
+      "id": "herb_05",
+      "name_cn": "连翘",
+      "name_en": "Forsythia Fruit",
+      "name_latin": "Forsythiae Fructus",
+      "pharmacopoeia_description": "呈长卵形至卵形，稍扁，长1.5~2.5cm；表面有不规则纵皱纹和多数突起小斑点；顶端锐尖。",
+      "standards": ["T/CACM 1021.37-2018"],
+      "grades": [
+        {
+          "grade": "青翘-选货",
+          "grade_code": "QA",
+          "criteria": {
+            "color": "青绿色或绿褐色",
+            "split": "多不开裂",
+            "stalk_rate": "果柄残留<10%",
+            "impurity": "杂质≤3%"
+          },
+          "visual_conditions": {
+            "color_range": ["青绿色", "绿褐色"],
+            "shape": "长卵形，不开裂",
+            "surface": "纵皱纹和小斑点清晰",
+            "size_reference": "长1.5~2.5cm"
+          }
+        },
+        {
+          "grade": "青翘-统货",
+          "grade_code": "QB",
+          "criteria": {
+            "color": "青绿色或绿褐色",
+            "split": "多不开裂",
+            "stalk_rate": "果柄残留30%~80%",
+            "impurity": "杂质≤3%"
+          },
+          "visual_conditions": {
+            "color_range": ["青绿色", "绿褐色"],
+            "shape": "长卵形，多不开裂",
+            "surface": "纵皱纹可见",
+            "size_reference": "长1.5~2.5cm"
+          }
+        },
+        {
+          "grade": "老翘-统货",
+          "grade_code": "L",
+          "criteria": {
+            "color": "棕黄色或红棕色",
+            "split": "多开裂为两瓣",
+            "impurity": "杂质≤9%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕黄色", "红棕色"],
+            "shape": "长卵形，多开裂为两瓣",
+            "surface": "纵皱纹明显",
+            "size_reference": "长1.5~2.5cm"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "青翘vs老翘区分", "method": "颜色：绿色系为青翘，黄棕色系为老翘", "judgment": "high"},
+        {"dimension": "青翘颜色", "method": "青绿色程度", "judgment": "high"},
+        {"dimension": "是否开裂", "method": "观察果实是否裂开", "judgment": "high"},
+        {"dimension": "果柄残留", "method": "估算带果柄的比例", "judgment": "high"},
+        {"dimension": "杂质含量", "method": "枝叶、果柄等占比", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "青翘混老翘", "description": "青翘中混有已变黄的果实"},
+        {"defect": "灰翘", "description": "隔年老翘呈灰白色"},
+        {"defect": "杂质超标", "description": "枝叶、果柄等杂质过多"},
+        {"defect": "霉变", "description": "表面出现霉斑"}
+      ]
+    },
+    {
+      "id": "herb_06",
+      "name_cn": "补骨脂",
+      "name_en": "Psoralea Fruit",
+      "name_latin": "Psoraleae Fructus",
+      "pharmacopoeia_description": "呈肾形，略扁，长3~5mm，宽2~4mm，厚约1.5mm；表面黑色、黑褐色或棕褐色，具细微网状皱纹；质硬。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "黑色或黑褐色，色泽均匀",
+            "plumpness": "颗粒饱满，网状皱纹清晰",
+            "defects": "无杂质、无虫蛀霉变"
+          },
+          "visual_conditions": {
+            "color_range": ["黑色", "黑褐色"],
+            "shape": "肾形，饱满",
+            "surface": "网状皱纹清晰",
+            "size_reference": "长3~5mm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕褐色或黑褐色，色泽较均匀",
+            "plumpness": "较饱满，少量干瘪",
+            "defects": "杂质≤2%，少量破碎"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色", "黑褐色"],
+            "shape": "肾形，较饱满",
+            "surface": "网状皱纹可见",
+            "size_reference": "长3~5mm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕色或灰棕色",
+            "plumpness": "干瘪粒较多",
+            "defects": "杂质≤5%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕色", "灰棕色"],
+            "shape": "肾形，干瘪",
+            "surface": "皱纹模糊",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "黑色/黑褐色为优，灰棕/黄棕为劣", "judgment": "high"},
+        {"dimension": "颗粒饱满度", "method": "肾形饱满为优，干瘪扁平为劣", "judgment": "high"},
+        {"dimension": "网状皱纹", "method": "是否清晰可见", "judgment": "high"},
+        {"dimension": "杂质含量", "method": "估算杂质占比", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "干瘪粒", "description": "果实干瘪，失去肾形饱满外观"},
+        {"defect": "破碎粒", "description": "果实碎裂不完整"},
+        {"defect": "虫蛀", "description": "表面可见虫孔"},
+        {"defect": "杂质", "description": "泥沙、碎壳等非药用部分"}
+      ]
+    },
+    {
+      "id": "herb_07",
+      "name_cn": "草豆蔻",
+      "name_en": "Alpinia Seed",
+      "name_latin": "Alpiniae Katsumadai Semen",
+      "pharmacopoeia_description": "为姜科植物草豆蔻的种子团。呈类球形或长椭圆形；表面灰棕色或灰褐色，有纵棱线及沟纹；种子团分成3瓣。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "灰棕色，颗粒饱满均匀",
+            "seed_state": "种子团紧密，籽粒饱满",
+            "defects": "无霉变、无虫蛀"
+          },
+          "visual_conditions": {
+            "color_range": ["灰棕色"],
+            "shape": "类球形，饱满",
+            "surface": "纵棱线及沟纹清晰",
+            "size_reference": "大颗粒"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "灰褐色，颗粒较均匀",
+            "seed_state": "种子团较松，少量瘪粒",
+            "defects": "无霉变"
+          },
+          "visual_conditions": {
+            "color_range": ["灰褐色"],
+            "shape": "类球形，较饱满",
+            "surface": "纵棱线可见",
+            "size_reference": "中等颗粒"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "颜色偏暗",
+            "seed_state": "种子团松散，瘪粒较多",
+            "defects": "少量霉变或虫蛀"
+          },
+          "visual_conditions": {
+            "color_range": ["灰褐色", "暗棕色"],
+            "shape": "类球形，偏小",
+            "surface": "棱线模糊",
+            "size_reference": "小颗粒"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "种子团完整度", "method": "是否散碎", "judgment": "high"},
+        {"dimension": "颜色", "method": "灰棕色为优，灰黑/暗褐为劣", "judgment": "high"},
+        {"dimension": "籽粒饱满度", "method": "通过外形判断", "judgment": "medium"},
+        {"dimension": "霉变虫蛀", "method": "表面是否有霉斑或虫孔", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "种子团散碎", "description": "种子团不完整，散开"},
+        {"defect": "瘪粒", "description": "籽粒干瘪不饱满"},
+        {"defect": "霉变", "description": "表面出现霉斑"},
+        {"defect": "虫蛀", "description": "可见虫孔或虫粪"}
+      ]
+    },
+    {
+      "id": "herb_08",
+      "name_cn": "川楝子",
+      "name_en": "Sichuan Chinaberry",
+      "name_latin": "Toosendan Fructus",
+      "pharmacopoeia_description": "呈类球形，直径2~3.2cm；表面金黄色至棕黄色，具深纵沟及小凹点；果肉松软，有弹性。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "金黄色至棕黄色，色泽均匀",
+            "size": "直径≥2.5cm",
+            "flesh": "果肉厚实有弹性"
+          },
+          "visual_conditions": {
+            "color_range": ["金黄色", "棕黄色"],
+            "shape": "类球形，饱满",
+            "surface": "深纵沟及小凹点清晰",
+            "size_reference": "直径≥2.5cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕黄色，色泽较均匀",
+            "size": "直径≥2cm",
+            "flesh": "果肉较厚"
+          },
+          "visual_conditions": {
+            "color_range": ["棕黄色"],
+            "shape": "类球形",
+            "surface": "纵沟可见",
+            "size_reference": "直径≥2cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色或暗棕色",
+            "size": "直径≥1.5cm",
+            "flesh": "果肉薄，干瘪"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色", "暗棕色"],
+            "shape": "类球形，干瘪皱缩",
+            "surface": "纵沟模糊",
+            "size_reference": "直径≥1.5cm"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "金黄色为优，暗棕/发黑为劣", "judgment": "high"},
+        {"dimension": "果实大小", "method": "估算直径", "judgment": "high"},
+        {"dimension": "表面纵沟", "method": "深浅及凹点状态", "judgment": "high"},
+        {"dimension": "虫蛀", "method": "川楝子极易虫蛀，需仔细检查", "judgment": "high"},
+        {"dimension": "果肉干瘪", "method": "是否皱缩", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "虫蛀", "description": "果面可见虫孔，川楝子极易虫蛀"},
+        {"defect": "干瘪", "description": "果肉皱缩，体积缩小"},
+        {"defect": "变色", "description": "颜色变深发暗，可能为陈货"},
+        {"defect": "霉变", "description": "表面出现霉斑"}
+      ]
+    },
+    {
+      "id": "herb_09",
+      "name_cn": "地肤子",
+      "name_en": "Kochia Fruit",
+      "name_latin": "Kochiae Fructus",
+      "pharmacopoeia_description": "呈扁球状五角星形，直径1~3mm；表面灰绿色或浅棕色；周围具5枚膜质小翅。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "灰绿色，色泽鲜明",
+            "integrity": "五角星形完整，翅膜完好",
+            "impurity": "杂质≤2%"
+          },
+          "visual_conditions": {
+            "color_range": ["灰绿色"],
+            "shape": "扁球状五角星形，完整",
+            "surface": "5枚膜质小翅完好",
+            "size_reference": "直径1~3mm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "浅棕色或灰绿色",
+            "integrity": "大部分完整，少量破碎",
+            "impurity": "杂质≤4%"
+          },
+          "visual_conditions": {
+            "color_range": ["浅棕色", "灰绿色"],
+            "shape": "大部分五角星形完整",
+            "surface": "翅膜部分残缺",
+            "size_reference": "直径1~3mm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色",
+            "integrity": "破碎较多",
+            "impurity": "杂质≤6%"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色"],
+            "shape": "破碎，五角星形不完整",
+            "surface": "翅膜残缺或脱落",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "灰绿色为优，棕褐/暗黄为劣", "judgment": "high"},
+        {"dimension": "五角星形完整度", "method": "是否保持完整星形", "judgment": "high"},
+        {"dimension": "翅膜完好度", "method": "5枚膜质小翅是否完好", "judgment": "high"},
+        {"dimension": "杂质含量", "method": "泥沙、碎末占比", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "破碎", "description": "五角星形不完整，翅膜脱落"},
+        {"defect": "变色", "description": "颜色变深，呈棕褐色"},
+        {"defect": "杂质", "description": "泥沙、碎末等杂质"}
+      ]
+    },
+    {
+      "id": "herb_10",
+      "name_cn": "豆蔻",
+      "name_en": "Round Cardamom",
+      "name_latin": "Amomi Fructus Rotundus",
+      "pharmacopoeia_description": "呈类球形；表面黄白色至淡黄棕色，有3条较深的纵向槽纹；果皮体轻质脆；种子团分成3瓣。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "黄白色至淡黄棕色，色泽均匀",
+            "integrity": "果实完整无裂",
+            "seed_state": "种子团紧密，香气浓"
+          },
+          "visual_conditions": {
+            "color_range": ["黄白色", "淡黄棕色"],
+            "shape": "类球形，完整",
+            "surface": "3条纵向槽纹清晰",
+            "size_reference": "中等大小"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "浅棕色",
+            "integrity": "少量裂果",
+            "seed_state": "种子团较紧密"
+          },
+          "visual_conditions": {
+            "color_range": ["浅棕色"],
+            "shape": "类球形，少量开裂",
+            "surface": "纵向槽纹可见",
+            "size_reference": "中等大小"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色",
+            "integrity": "裂果较多",
+            "seed_state": "种子团松散"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色"],
+            "shape": "类球形，多数开裂",
+            "surface": "槽纹模糊",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "黄白色为优，棕褐为劣", "judgment": "high"},
+        {"dimension": "果实完整度", "method": "是否开裂", "judgment": "high"},
+        {"dimension": "纵向槽纹", "method": "3条槽纹是否清晰", "judgment": "high"},
+        {"dimension": "种子团状态", "method": "是否饱满紧密", "judgment": "medium"}
+      ],
+      "common_defects": [
+        {"defect": "裂果", "description": "果皮开裂，种子外露"},
+        {"defect": "变色", "description": "颜色变深呈棕褐色"},
+        {"defect": "种子团松散", "description": "种子散碎不紧密"},
+        {"defect": "霉变", "description": "表面出现霉斑"}
+      ]
+    },
+    {
+      "id": "herb_11",
+      "name_cn": "覆盆子",
+      "name_en": "Raspberry",
+      "name_latin": "Rubi Fructus",
+      "pharmacopoeia_description": "为聚合果，呈圆锥形或扁圆锥形；表面灰绿色或淡棕色，密被灰白色绒毛；小核果易脱落。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "灰绿色，色泽均匀",
+            "integrity": "聚合果完整，小核果不脱落",
+            "hair": "绒毛密被"
+          },
+          "visual_conditions": {
+            "color_range": ["灰绿色"],
+            "shape": "圆锥形或扁圆锥形，完整",
+            "surface": "密被灰白色绒毛",
+            "size_reference": "中等大小"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "淡棕色或灰绿色",
+            "integrity": "少量小核果脱落",
+            "hair": "绒毛较密"
+          },
+          "visual_conditions": {
+            "color_range": ["淡棕色", "灰绿色"],
+            "shape": "圆锥形，少量散碎",
+            "surface": "绒毛较密",
+            "size_reference": "中等大小"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色",
+            "integrity": "散碎较多",
+            "hair": "绒毛稀疏"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色"],
+            "shape": "散碎，不完整",
+            "surface": "绒毛稀疏",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "灰绿色为优，黄棕/暗棕为劣", "judgment": "high"},
+        {"dimension": "聚合果完整度", "method": "小核果是否脱落散碎", "judgment": "high"},
+        {"dimension": "表面绒毛", "method": "灰白色绒毛覆盖程度", "judgment": "high"},
+        {"dimension": "杂质", "method": "枝叶、果柄等", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "小核果脱落", "description": "聚合果散碎，小核果分离"},
+        {"defect": "变色", "description": "颜色变深呈棕褐色"},
+        {"defect": "绒毛脱落", "description": "表面绒毛稀疏"},
+        {"defect": "杂质", "description": "混有枝叶、果柄"}
+      ]
+    },
+    {
+      "id": "herb_12",
+      "name_cn": "瓜蒌",
+      "name_en": "Trichosanthes Fruit",
+      "name_latin": "Trichosanthis Fructus",
+      "pharmacopoeia_description": "呈类球形或宽椭圆形；表面橙黄色至棕褐色，有深浅不一的纵皱纹；果皮厚。瓜蒌皮为果皮切片。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "橙黄色至橙红色，色泽鲜明",
+            "shape": "果实完整或大切片均匀",
+            "peel": "果皮厚实，内面黄白色"
+          },
+          "visual_conditions": {
+            "color_range": ["橙黄色", "橙红色"],
+            "shape": "类球形或宽椭圆形，完整",
+            "surface": "纵皱纹自然",
+            "size_reference": "大果实或大切片"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕黄色",
+            "shape": "较完整",
+            "peel": "果皮较厚"
+          },
+          "visual_conditions": {
+            "color_range": ["棕黄色"],
+            "shape": "较完整",
+            "surface": "纵皱纹可见",
+            "size_reference": "中等"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色",
+            "shape": "破碎较多",
+            "peel": "果皮薄"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色"],
+            "shape": "破碎",
+            "surface": "皱纹模糊",
+            "size_reference": "小碎片"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "橙黄色为优，暗棕/灰黑为劣", "judgment": "high"},
+        {"dimension": "完整度", "method": "果实或切片是否完整", "judgment": "high"},
+        {"dimension": "果皮厚度感", "method": "通过切面观察", "judgment": "medium"},
+        {"dimension": "霉斑", "method": "表面是否有霉变", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "破碎", "description": "果实或切片碎裂"},
+        {"defect": "变色", "description": "颜色变深呈暗棕色"},
+        {"defect": "霉变", "description": "表面出现霉斑"},
+        {"defect": "果皮薄", "description": "果皮薄，品质差"}
+      ]
+    },
+    {
+      "id": "herb_13",
+      "name_cn": "金樱子",
+      "name_en": "Cherokee Rose Fruit",
+      "name_latin": "Rosae Laevigatae Fructus",
+      "pharmacopoeia_description": "呈倒卵形或椭圆形，长2~3.5cm；表面红黄色或棕红色，有刺状突起；质硬。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "红黄色或棕红色，色泽均匀",
+            "integrity": "果实完整无裂",
+            "spine": "刺突完整"
+          },
+          "visual_conditions": {
+            "color_range": ["红黄色", "棕红色"],
+            "shape": "倒卵形或椭圆形，完整",
+            "surface": "刺状突起完整保留",
+            "size_reference": "长2~3.5cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕红色",
+            "integrity": "少量破损",
+            "spine": "刺突大部分保留"
+          },
+          "visual_conditions": {
+            "color_range": ["棕红色"],
+            "shape": "倒卵形，少量破损",
+            "surface": "刺突大部分保留",
+            "size_reference": "长2~3.5cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "棕褐色或暗棕色",
+            "integrity": "破损较多",
+            "spine": "刺突脱落较多"
+          },
+          "visual_conditions": {
+            "color_range": ["棕褐色", "暗棕色"],
+            "shape": "倒卵形，破损",
+            "surface": "刺突脱落",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "红黄色/棕红色为优", "judgment": "high"},
+        {"dimension": "倒卵形完整度", "method": "果实是否完整", "judgment": "high"},
+        {"dimension": "刺状突起", "method": "保留程度", "judgment": "high"},
+        {"dimension": "虫蛀", "method": "是否有虫孔洞", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "刺突脱落", "description": "表面刺状突起脱落"},
+        {"defect": "破损", "description": "果实破裂不完整"},
+        {"defect": "虫蛀", "description": "可见虫孔洞"},
+        {"defect": "变色", "description": "颜色变深发暗"}
+      ]
+    },
+    {
+      "id": "herb_14",
+      "name_cn": "苦杏仁",
+      "name_en": "Bitter Apricot Kernel",
+      "name_latin": "Armeniacae Semen Amarum",
+      "pharmacopoeia_description": "呈扁心形，长1~1.9cm，宽0.8~1.5cm；表面黄棕色至深棕色，一端尖，另一端钝圆，左右不对称；种皮薄。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "黄棕色至棕红色，色泽均匀",
+            "plumpness": "颗粒饱满，左右对称",
+            "integrity": "完整无碎，无去皮粒"
+          },
+          "visual_conditions": {
+            "color_range": ["黄棕色", "棕红色"],
+            "shape": "扁心形，饱满，左右对称",
+            "surface": "种皮完整",
+            "size_reference": "长1~1.9cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "深棕色",
+            "plumpness": "较饱满",
+            "integrity": "少量破碎或去皮"
+          },
+          "visual_conditions": {
+            "color_range": ["深棕色"],
+            "shape": "扁心形，较饱满",
+            "surface": "种皮完整或部分脱落",
+            "size_reference": "长1~1.9cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色或灰棕色",
+            "plumpness": "干瘪",
+            "integrity": "破碎较多"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色", "灰棕色"],
+            "shape": "扁心形，干瘪",
+            "surface": "种皮脱落",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "黄棕色为优，暗棕/灰黑为劣", "judgment": "high"},
+        {"dimension": "扁心形完整度", "method": "是否完整", "judgment": "high"},
+        {"dimension": "饱满度", "method": "是否饱满", "judgment": "high"},
+        {"dimension": "碎仁/去皮仁", "method": "是否有碎仁或去皮仁", "judgment": "high"},
+        {"dimension": "虫蛀/走油", "method": "是否有虫孔或走油现象", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "碎仁", "description": "杏仁碎裂不完整"},
+        {"defect": "去皮仁", "description": "种皮脱落，露出白色子叶"},
+        {"defect": "走油", "description": "表面颜色变深，呈油浸状"},
+        {"defect": "虫蛀", "description": "可见虫孔"}
+      ]
+    },
+    {
+      "id": "herb_15",
+      "name_cn": "木瓜",
+      "name_en": "Chinese Quince Fruit",
+      "name_latin": "Chaenomelis Fructus",
+      "pharmacopoeia_description": "药材多纵剖为两半或切片；外皮紫红色或红棕色，有皱纹；果肉红棕色或棕褐色，细腻。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "skin_color": "外皮紫红色",
+            "flesh_color": "果肉红棕色",
+            "slice": "切片均匀厚实"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮紫红色", "果肉红棕色"],
+            "shape": "纵剖半片或切片，均匀厚实",
+            "surface": "外皮皱纹自然",
+            "size_reference": "大切片"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "skin_color": "外皮红棕色",
+            "flesh_color": "果肉棕褐色",
+            "slice": "切片较均匀"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮红棕色", "果肉棕褐色"],
+            "shape": "切片较均匀",
+            "surface": "皱纹可见",
+            "size_reference": "中等切片"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "skin_color": "外皮暗棕色",
+            "flesh_color": "果肉暗褐色",
+            "slice": "切片不均匀"
+          },
+          "visual_conditions": {
+            "color_range": ["外皮暗棕色", "果肉暗褐色"],
+            "shape": "切片不均匀",
+            "surface": "皱纹模糊",
+            "size_reference": "小切片"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "外皮颜色", "method": "紫红色为优", "judgment": "high"},
+        {"dimension": "果肉颜色", "method": "红棕色为优，暗褐为劣", "judgment": "high"},
+        {"dimension": "切片厚度和均匀度", "method": "厚实均匀为优", "judgment": "high"},
+        {"dimension": "皱纹", "method": "是否自然", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "变色", "description": "外皮和果肉颜色变深发暗"},
+        {"defect": "切片不均匀", "description": "厚薄不一"},
+        {"defect": "霉变", "description": "表面出现霉斑"},
+        {"defect": "虫蛀", "description": "可见虫孔"}
+      ]
+    },
+    {
+      "id": "herb_16",
+      "name_cn": "山茱萸",
+      "name_en": "Asiatic Cornelian Cherry Fruit",
+      "name_latin": "Corni Fructus",
+      "pharmacopoeia_description": "呈不规则的片状或囊状，长1~1.5cm，宽0.5~1cm；表面紫红色至紫黑色，有光泽；质柔润。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "紫红色至暗紫红色，有光泽",
+            "flesh": "肉厚，质柔润",
+            "impurity": "果核及杂质≤3%"
+          },
+          "visual_conditions": {
+            "color_range": ["紫红色", "暗紫红色"],
+            "shape": "片状或囊状，厚实",
+            "surface": "有光泽，柔润感",
+            "size_reference": "长1~1.5cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "紫黑色或暗红色",
+            "flesh": "肉较厚",
+            "impurity": "果核及杂质≤5%"
+          },
+          "visual_conditions": {
+            "color_range": ["紫黑色", "暗红色"],
+            "shape": "片状或囊状",
+            "surface": "光泽较弱",
+            "size_reference": "长1~1.5cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色",
+            "flesh": "肉薄",
+            "impurity": "果核及杂质≤8%"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色"],
+            "shape": "片状，薄",
+            "surface": "无光泽",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "紫红色/紫黑色有光泽为优，暗棕无光为劣", "judgment": "high"},
+        {"dimension": "肉厚度", "method": "片状物的厚实感", "judgment": "high"},
+        {"dimension": "果核混入", "method": "是否混有黑色硬核", "judgment": "high"},
+        {"dimension": "霉变虫蛀", "method": "表面是否有霉斑或虫孔", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "果核混入", "description": "混有黑色硬核"},
+        {"defect": "肉薄", "description": "果皮薄，品质差"},
+        {"defect": "变色", "description": "颜色变暗，失去紫红色泽"},
+        {"defect": "霉变", "description": "表面出现霉斑"}
+      ]
+    },
+    {
+      "id": "herb_17",
+      "name_cn": "桃仁",
+      "name_en": "Peach Kernel",
+      "name_latin": "Persicae Semen",
+      "pharmacopoeia_description": "呈扁长卵形，长1.2~1.8cm，宽0.8~1.2cm；表面黄棕色至红棕色，密被纵皱纹；种皮薄，子叶2，富油性。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "黄棕色至红棕色，色泽均匀",
+            "plumpness": "饱满厚实",
+            "integrity": "完整无碎"
+          },
+          "visual_conditions": {
+            "color_range": ["黄棕色", "红棕色"],
+            "shape": "扁长卵形，饱满",
+            "surface": "密被纵皱纹",
+            "size_reference": "长1.2~1.8cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "深棕色",
+            "plumpness": "较饱满",
+            "integrity": "少量破碎"
+          },
+          "visual_conditions": {
+            "color_range": ["深棕色"],
+            "shape": "扁长卵形",
+            "surface": "纵皱纹可见",
+            "size_reference": "长1.2~1.8cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色或灰棕色",
+            "plumpness": "干瘪",
+            "integrity": "破碎较多"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色", "灰棕色"],
+            "shape": "扁长卵形，干瘪",
+            "surface": "皱纹模糊",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "黄棕/红棕为优", "judgment": "high"},
+        {"dimension": "饱满度", "method": "是否饱满厚实", "judgment": "high"},
+        {"dimension": "纵皱纹", "method": "是否清晰", "judgment": "high"},
+        {"dimension": "碎仁/走油/虫蛀", "method": "是否有碎仁、走油或虫蛀", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "碎仁", "description": "桃仁碎裂不完整"},
+        {"defect": "走油", "description": "表面颜色变深，呈油浸状"},
+        {"defect": "虫蛀", "description": "可见虫孔"},
+        {"defect": "干瘪", "description": "桃仁干瘪不饱满"}
+      ]
+    },
+    {
+      "id": "herb_18",
+      "name_cn": "乌梅",
+      "name_en": "Dark Plum",
+      "name_latin": "Mume Fructus",
+      "pharmacopoeia_description": "呈类球形或扁球形，直径1.5~3cm；表面乌黑色或棕黑色，皱缩不平；果肉柔软或略硬；核坚硬。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "乌黑色，色泽均匀",
+            "size": "直径≥2cm",
+            "flesh": "肉厚柔软"
+          },
+          "visual_conditions": {
+            "color_range": ["乌黑色"],
+            "shape": "类球形或扁球形，饱满",
+            "surface": "皱缩自然均匀",
+            "size_reference": "直径≥2cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕黑色",
+            "size": "直径≥1.5cm",
+            "flesh": "肉较厚"
+          },
+          "visual_conditions": {
+            "color_range": ["棕黑色"],
+            "shape": "类球形或扁球形",
+            "surface": "皱缩",
+            "size_reference": "直径≥1.5cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色",
+            "size": "较小",
+            "flesh": "肉薄干硬"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色"],
+            "shape": "类球形，干缩",
+            "surface": "皱缩严重",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "乌黑色为优，棕褐/灰棕为劣", "judgment": "high"},
+        {"dimension": "果实大小", "method": "估算直径", "judgment": "high"},
+        {"dimension": "皱缩程度", "method": "自然皱缩vs过度干缩", "judgment": "high"},
+        {"dimension": "果肉厚薄感", "method": "通过外形判断", "judgment": "medium"},
+        {"dimension": "霉变", "method": "表面是否有霉斑", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "过度干缩", "description": "果肉干硬，体积明显缩小"},
+        {"defect": "变色", "description": "颜色不均匀，局部发灰"},
+        {"defect": "霉变", "description": "表面出现霉斑"},
+        {"defect": "杂质", "description": "混有果核、枝叶等"}
+      ]
+    },
+    {
+      "id": "herb_19",
+      "name_cn": "小茴香",
+      "name_en": "Fennel Fruit",
+      "name_latin": "Foeniculi Fructus",
+      "pharmacopoeia_description": "为双悬果，呈圆柱形，长4~8mm，宽1.5~2.5mm；表面黄绿色或淡黄棕色，背面有纵棱线5条。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "黄绿色，色泽鲜明",
+            "plumpness": "颗粒饱满，棱线清晰",
+            "impurity": "杂质≤2%"
+          },
+          "visual_conditions": {
+            "color_range": ["黄绿色"],
+            "shape": "圆柱形，饱满",
+            "surface": "5条纵棱线清晰",
+            "size_reference": "长4~8mm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "淡黄棕色",
+            "plumpness": "较饱满",
+            "impurity": "杂质≤4%"
+          },
+          "visual_conditions": {
+            "color_range": ["淡黄棕色"],
+            "shape": "圆柱形",
+            "surface": "纵棱线可见",
+            "size_reference": "长4~8mm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "灰棕色或暗黄色",
+            "plumpness": "干瘪",
+            "impurity": "杂质≤6%"
+          },
+          "visual_conditions": {
+            "color_range": ["灰棕色", "暗黄色"],
+            "shape": "圆柱形，干瘪",
+            "surface": "棱线模糊",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "黄绿色为优，绿色调越明显越新鲜", "judgment": "high"},
+        {"dimension": "颗粒饱满度", "method": "是否饱满", "judgment": "high"},
+        {"dimension": "纵棱线", "method": "5条棱线是否清晰", "judgment": "high"},
+        {"dimension": "杂质含量", "method": "泥沙、碎末、茎梗占比", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "干瘪", "description": "果实干瘪不饱满"},
+        {"defect": "变色", "description": "颜色变深，失去黄绿色泽"},
+        {"defect": "杂质", "description": "泥沙、碎末、茎梗等"},
+        {"defect": "破碎", "description": "果实碎裂"}
+      ]
+    },
+    {
+      "id": "herb_20",
+      "name_cn": "栀子",
+      "name_en": "Gardenia Fruit",
+      "name_latin": "Gardeniae Fructus",
+      "pharmacopoeia_description": "呈长卵圆形或椭圆形，长1.5~3.5cm，直径1~1.5cm；表面红黄色或棕红色，具6条翅状纵棱；果皮薄而脆。",
+      "standards": ["中国药典2020版", "传统商品标准"],
+      "grades": [
+        {
+          "grade": "一等品",
+          "grade_code": "A",
+          "criteria": {
+            "color": "红黄色或棕红色，色泽鲜艳",
+            "integrity": "果实完整无裂",
+            "rib": "6条翅状纵棱完整"
+          },
+          "visual_conditions": {
+            "color_range": ["红黄色", "棕红色"],
+            "shape": "长卵圆形或椭圆形，完整",
+            "surface": "6条翅状纵棱完整清晰",
+            "size_reference": "长1.5~3.5cm"
+          }
+        },
+        {
+          "grade": "二等品",
+          "grade_code": "B",
+          "criteria": {
+            "color": "棕红色",
+            "integrity": "少量破损",
+            "rib": "棱翅大部分保留"
+          },
+          "visual_conditions": {
+            "color_range": ["棕红色"],
+            "shape": "长卵圆形，少量破损",
+            "surface": "棱翅大部分保留",
+            "size_reference": "长1.5~3.5cm"
+          }
+        },
+        {
+          "grade": "三等品",
+          "grade_code": "C",
+          "criteria": {
+            "color": "暗棕色",
+            "integrity": "破碎较多",
+            "rib": "棱翅残缺"
+          },
+          "visual_conditions": {
+            "color_range": ["暗棕色"],
+            "shape": "破碎",
+            "surface": "棱翅残缺",
+            "size_reference": "偏小"
+          }
+        }
+      ],
+      "visual_focus": [
+        {"dimension": "颜色", "method": "红黄色为优，暗棕/发黑为劣", "judgment": "high"},
+        {"dimension": "果实完整度", "method": "是否完整无裂", "judgment": "high"},
+        {"dimension": "翅状纵棱", "method": "6条棱翅的完整程度（关键鉴别特征）", "judgment": "high"},
+        {"dimension": "虫蛀", "method": "是否有虫孔", "judgment": "high"}
+      ],
+      "common_defects": [
+        {"defect": "棱翅残缺", "description": "6条翅状纵棱断裂或缺失"},
+        {"defect": "破碎", "description": "果实破裂不完整"},
+        {"defect": "变色", "description": "颜色变深发暗"},
+        {"defect": "虫蛀", "description": "可见虫孔"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中药材智能定级 · Demo2 本地分类器版</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+    background:linear-gradient(135deg,#f5f0e6 0%,#ede4d3 100%);
+    min-height:100vh; color:#3d2f1e; padding:24px; }
+  .container { max-width:1180px; margin:0 auto; }
+  header { text-align:center; margin-bottom:28px; }
+  header h1 { font-size:26px; color:#5a3e1b; letter-spacing:2px; }
+  header h1::before { content:"🌿 "; }
+  header p { color:#8a7454; font-size:13px; margin-top:6px; }
+  .grid { display:grid; grid-template-columns:400px 1fr; gap:20px; }
+  @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
+  .card { background:#fff; border-radius:14px; padding:20px;
+    box-shadow:0 4px 20px rgba(90,62,27,.08); }
+  .card h2 { font-size:15px; color:#5a3e1b; margin-bottom:14px;
+    padding-bottom:10px; border-bottom:2px solid #f0e6d4; }
+  .drop { border:2px dashed #c9b28a; border-radius:12px; padding:36px 16px;
+    text-align:center; cursor:pointer; transition:.2s; background:#faf6ee; }
+  .drop:hover,.drop.drag { border-color:#8a6d3b; background:#f3ead9; }
+  .drop .icon { font-size:40px; }
+  .drop p { color:#8a7454; font-size:13px; margin-top:8px; }
+  #preview { width:100%; border-radius:10px; margin-top:12px; display:none; }
+  .samples { margin-top:14px; }
+  .samples label { font-size:12px; color:#8a7454; display:block; margin-bottom:6px; }
+  select { width:100%; padding:9px 12px; border:1px solid #d9c9a8; border-radius:8px;
+    font-size:13px; background:#fff; color:#3d2f1e; }
+  button { cursor:pointer; border:none; border-radius:9px; font-size:14px;
+    padding:11px 22px; transition:.15s; font-family:inherit; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .btn-primary { background:linear-gradient(135deg,#6b8e23,#5a7a1e); color:#fff; width:100%; margin-top:14px; }
+  .btn-primary:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 4px 12px rgba(107,142,35,.35); }
+  .empty { text-align:center; color:#b8a888; padding:60px 0; font-size:14px; }
+  .herb-row { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  .herb-name { font-size:22px; font-weight:bold; color:#5a3e1b; }
+  .badge { padding:4px 12px; border-radius:20px; font-size:12px; font-weight:bold; }
+  .badge.ok { background:#e8f3d9; color:#4a7010; }
+  .badge.bad { background:#fdeaea; color:#c0392b; }
+  .conf-bar { height:8px; background:#f0e6d4; border-radius:4px; overflow:hidden; margin:6px 0 4px; }
+  .conf-fill { height:100%; background:linear-gradient(90deg,#d4a017,#6b8e23); border-radius:4px; transition:width .6s; }
+  .conf-text { font-size:12px; color:#8a7454; }
+  .top3 { display:flex; gap:8px; flex-wrap:wrap; margin:8px 0; }
+  .top3 .chip { background:#faf6ee; border:1px solid #e0d4b8; border-radius:16px;
+    padding:3px 12px; font-size:12px; color:#6b5a3e; }
+  .top3 .chip.top { background:#e8f3d9; border-color:#b8cf94; color:#4a7010; font-weight:bold; }
+  .reasoning { background:#faf6ee; border-left:3px solid #c9b28a; padding:10px 12px;
+    font-size:13px; color:#6b5a3e; border-radius:0 8px 8px 0; margin:10px 0; }
+  .grade-box { display:flex; align-items:center; gap:14px;
+    background:linear-gradient(135deg,#faf6ee,#f3ead9); border-radius:12px; padding:14px 18px; margin:14px 0; }
+  .grade-big { font-size:34px; font-weight:bold; color:#8b4513; }
+  .grade-code { font-size:15px; color:#8a7454; }
+  .dims { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+  .dim { background:#faf6ee; border-radius:10px; padding:11px 13px; font-size:12.5px; line-height:1.65; }
+  .dim b { display:block; color:#5a3e1b; font-size:13px; margin-bottom:4px; }
+  .dim.lowest { outline:2px solid #e07b39; background:#fdf3ea; }
+  .dim .tag { color:#e07b39; font-weight:bold; font-size:11px; }
+  .review-warn { background:#fff8e6; border:1px solid #f0d890; color:#8a6d3b;
+    padding:10px 14px; border-radius:9px; font-size:13px; margin-top:12px; }
+  .correct-row { display:flex; gap:10px; align-items:center; margin-top:16px;
+    padding-top:14px; border-top:1px dashed #e0d4b8; }
+  .correct-row select { flex:1; }
+  .btn-regrade { background:#c9771e; color:#fff; white-space:nowrap; }
+  .btn-regrade:hover:not(:disabled) { background:#b5661a; }
+  .actions { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+  .btn-pass { background:linear-gradient(135deg,#4a8c3f,#3a7030); color:#fff; padding:14px; font-size:15px; }
+  .btn-pass:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 4px 14px rgba(74,140,63,.4); }
+  .btn-human { background:linear-gradient(135deg,#e07b39,#c9661e); color:#fff; padding:14px; font-size:15px; }
+  .btn-human:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 4px 14px rgba(224,123,57,.4); }
+  .toast { position:fixed; top:20px; left:50%; transform:translateX(-50%);
+    background:#3d2f1e; color:#fff; padding:12px 26px; border-radius:10px;
+    font-size:14px; opacity:0; transition:.3s; pointer-events:none; z-index:99; }
+  .toast.show { opacity:1; }
+  .loading { text-align:center; padding:50px 0; color:#8a7454; }
+  .spinner { width:36px; height:36px; border:4px solid #f0e6d4; border-top-color:#8a6d3b;
+    border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 12px; }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  .log-list { max-height:180px; overflow-y:auto; font-size:12px; }
+  .log-item { padding:7px 10px; border-bottom:1px solid #f0e6d4;
+    display:flex; justify-content:space-between; gap:8px; }
+  .log-item .a-ok{color:#4a7010;font-weight:bold;}
+  .log-item .a-hr{color:#c9661e;font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>中药材智能定级 · Demo2（本地分类器版）</h1>
+    <p>本地 ResNet18 识别品种（毫秒级）→ 规则检索 → 大模型定级 → 人工确认　|　访问地址：http://127.0.0.1:7861</p>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <h2>① 输入图片</h2>
+      <div class="drop" id="drop">
+        <div class="icon">📷</div>
+        <p>点击或拖拽图片到此处上传<br>JPG / PNG</p>
+      </div>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+      <img id="preview" alt="预览">
+      <div class="samples">
+        <label>或从数据集选择示例图片：</label>
+        <select id="sampleSel"><option value="">— 选择示例 —</option></select>
+      </div>
+      <button class="btn-primary" id="btnStart" disabled title="请先选择示例图片或上传图片">开始识别与定级</button>
+    </div>
+    <div class="card">
+      <h2>② 识别与定级结果</h2>
+      <div id="result"><div class="empty">等待输入图片…</div></div>
+      <div class="correct-row" id="correctRow" style="display:none">
+        <select id="herbSel"></select>
+        <button class="btn-regrade" id="btnRegrade">🔄 重新定级</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <h2>③ 复核结论</h2>
+    <div class="actions">
+      <button class="btn-pass" id="btnPass" disabled title="请先完成识别与定级">✓ 定级通过</button>
+      <button class="btn-human" id="btnHuman" disabled title="请先完成识别与定级">↩ 返回人工复核</button>
+    </div>
+    <h2 style="margin-top:20px">复核日志（最近记录）</h2>
+    <div class="log-list" id="logList"><div class="empty" style="padding:16px">暂无记录</div></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+// 直接双击 HTML 文件（file:// 协议）无法调用后端 API，自动跳转到服务地址
+if(location.protocol==='file:'){ location.replace('http://127.0.0.1:7861'); }
+let HERBS=[], SAMPLES=[], currentPath=null, currentUploadB64=null, aiHerb=null, grading=null;
+
+const $=id=>document.getElementById(id);
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);}
+function esc(s){return (s??'').toString().replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));}
+
+async function init(){
+  try{
+    const r=await fetch('/api/herbs'); const d=await r.json();
+    HERBS=d.herbs; SAMPLES=d.samples;
+    $('herbSel').innerHTML=HERBS.map(h=>`<option>${esc(h)}</option>`).join('');
+    SAMPLES.forEach((s,i)=>{const o=document.createElement('option');o.value=i;
+      o.textContent=`${s.herb}（${s.path.split('\\').pop().split('/').pop()}）`;$('sampleSel').appendChild(o);});
+  }catch(e){
+    $('result').innerHTML='<div class="review-warn">⚠ 无法连接后端服务。请确认已运行 <b>python demo2.py</b>，并用浏览器访问 <b>http://127.0.0.1:7861</b>（不要直接双击 HTML 文件打开）。</div>';
+    $('btnStart').disabled=true; $('sampleSel').disabled=true;
+  }
+  loadLog();
+}
+
+function resetResult(){
+  $('result').innerHTML='<div class="empty">点击"开始识别与定级"…</div>';
+  $('correctRow').style.display='none';
+  $('btnPass').disabled=true; $('btnHuman').disabled=true;
+}
+
+function setPreview(src){ $('preview').src=src; $('preview').style.display='block'; $('btnStart').disabled=false; resetResult(); }
+
+$('drop').onclick=()=>$('fileInput').click();
+$('fileInput').onchange=e=>handleFile(e.target.files[0]);
+$('drop').ondragover=e=>{e.preventDefault();$('drop').classList.add('drag');};
+$('drop').ondragleave=()=>$('drop').classList.remove('drag');
+$('drop').ondrop=e=>{e.preventDefault();$('drop').classList.remove('drag');handleFile(e.dataTransfer.files[0]);};
+
+function handleFile(f){
+  if(!f) return;
+  const reader=new FileReader();
+  reader.onload=()=>{ currentUploadB64=reader.result; currentPath=null;
+    setPreview(reader.result); };
+  reader.readAsDataURL(f);
+}
+
+$('sampleSel').onchange=e=>{
+  if(e.target.value==='')return;
+  const s=SAMPLES[e.target.value];
+  currentUploadB64=null; currentPath=s.path;
+  setPreview('/api/image?path='+encodeURIComponent(s.path));
+};
+
+function showLoading(){ $('result').innerHTML=
+  '<div class="loading"><div class="spinner"></div>本地模型已完成品种识别，正在调用大模型定级…<br><span style="font-size:12px">约需 30~60 秒，请勿关闭页面</span></div>'; }
+
+function render(d){
+  if(!d.ok){ $('result').innerHTML=`<div class="review-warn">❌ ${esc(d.error)}</div>`; return; }
+  const ident=d.identification, g=d.grading;
+  const cls=g.review_flag?'bad':'ok';
+  const confPct=Math.round((g.confidence??0)*100);
+  const lowest=g.lowest_dimension||'';
+  const dimNames={color:'色泽',size:'形态大小',plumpness:'饱满度',defect_rate:'缺陷/霉变/虫蛀'};
+  let html=`
+    <div class="herb-row">
+      <span class="herb-name">${esc(ident.identified_herb)}</span>
+      <span class="badge ${cls}">${g.review_flag?'⚠ 需复核':'✓ 识别完成'}</span>
+      <span class="conf-text">识别置信度 ${(ident.herb_confidence??0).toFixed(2)}（本地分类器）</span>
+    </div>`;
+  if(ident.herb_top3&&ident.herb_top3.length){
+    html+='<div class="top3">'+ident.herb_top3.map((c,i)=>
+      `<span class="chip ${i===0?'top':''}">${esc(c.herb)} ${(c.prob*100).toFixed(1)}%</span>`).join('')+'</div>';
+  }
+  html+=`
+    ${ident.herb_reasoning?`<div class="reasoning">💡 ${esc(ident.herb_reasoning)}</div>`:''}
+    <div class="grade-box">
+      <div class="grade-big">${esc(g.grade||'—')}</div>
+      <div style="flex:1">
+        <div class="grade-code">等级代码 ${esc(g.grade_code||'—')}</div>
+        <div class="conf-bar"><div class="conf-fill" style="width:${confPct}%"></div></div>
+        <div class="conf-text">定级置信度 ${confPct}%　木桶短板：<b style="color:#e07b39">${dimNames[lowest]||lowest||'—'}</b></div>
+      </div>
+    </div>
+    <div class="dims">`;
+  for(const k of ['color','size','plumpness','defect_rate']){
+    html+=`<div class="dim ${k===lowest?'lowest':''}"><b>${dimNames[k]}${k===lowest?' <span class="tag">← 短板</span>':''}</b>${esc(g.evidence?.[k]||'—')}</div>`;
+  }
+  html+='</div>';
+  if(g.review_reason) html+=`<div class="review-warn">⚠ ${esc(g.review_reason)}</div>`;
+  $('result').innerHTML=html;
+  $('herbSel').value=HERBS.includes(ident.identified_herb)?ident.identified_herb:HERBS[0];
+  $('correctRow').style.display='flex';
+  $('btnPass').disabled=false; $('btnHuman').disabled=false;
+  aiHerb=ident.identified_herb; grading=g;
+}
+
+$('btnStart').onclick=async()=>{
+  if(!currentUploadB64&&!currentPath)return;
+  $('btnStart').disabled=true; showLoading();
+  try{
+    let d;
+    if(currentUploadB64){
+      const r=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({image_b64:currentUploadB64})});
+      d=await r.json();
+    }else{
+      const r=await fetch('/api/sample',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({path:currentPath})});
+      d=await r.json();
+    }
+    if(d.ok) currentPath=d.image_path;
+    render(d);
+  }catch(e){ $('result').innerHTML=`<div class="review-warn">请求失败：${esc(e.message)}</div>`; }
+  $('btnStart').disabled=false;
+};
+
+$('btnRegrade').onclick=async()=>{
+  if(!currentPath){toast('无图片路径');return;}
+  const herb=$('herbSel').value;
+  $('btnRegrade').disabled=true; showLoading();
+  try{
+    const r=await fetch('/api/regrade',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({path:currentPath,herb})});
+    const d=await r.json();
+    if(d.ok){ d.identification={identified_herb:herb,herb_confidence:1.0,
+      herb_reasoning:'人工指定品种，跳过识别',herb_top3:[]}; aiHerb=herb; }
+    render(d);
+  }catch(e){ toast('请求失败：'+e.message); }
+  $('btnRegrade').disabled=false;
+};
+
+// 注意：不能用 confirm 作为函数名——会与浏览器内置 window.confirm() 弹窗冲突，
+// 导致点击按钮时弹出原生对话框而保存请求永远不发出。
+async function saveReview(action){
+  $('btnPass').disabled=true; $('btnHuman').disabled=true;
+  try{
+    const body={image_path:currentPath||'',ai_herb:aiHerb,final_herb:$('herbSel').value,
+      grade:grading.grade,grade_code:grading.grade_code,confidence:grading.confidence,action};
+    const r=await fetch('/api/confirm',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)});
+    const d=await r.json();
+    if(d.ok){
+      toast(action==='approved'?'✓ 已定级通过，记录归档':'↩ 已标记返回人工复核');
+      loadLog();
+    }else{
+      toast('记录失败：'+(d.error||'未知错误'));
+    }
+  }catch(e){
+    toast('请求失败：'+e.message+'（请确认通过 http://127.0.0.1:7861 访问）');
+  }
+  $('btnPass').disabled=false; $('btnHuman').disabled=false;
+}
+$('btnPass').onclick=()=>saveReview('approved');
+$('btnHuman').onclick=()=>saveReview('human_review');
+
+async function loadLog(){
+  try{
+    const r=await fetch('/api/log'); const d=await r.json();
+    $('logList').innerHTML = d.records.length
+      ? d.records.slice().reverse().map(x=>
+        `<div class="log-item"><span>${esc(x.timestamp.slice(5,16))} ${esc(x.final_herb)} → ${esc(x.grade)}</span>
+         <span class="${x.action==='approved'?'a-ok':'a-hr'}">${x.action==='approved'?'通过':'人工'}${x.herb_corrected?' ·已改':''}</span></div>`).join('')
+      : '<div class="empty" style="padding:16px">暂无记录</div>';
+  }catch(e){}
+}
+init();
+</script>
+</body>
+</html>

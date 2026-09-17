@@ -1,0 +1,29 @@
+# ============ 敏感信息（绝不提交） ============
+.env
+*.env
+!*.env.example
+
+# ============ Python ============
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# ============ 数据集（体积大 / 版权原因不入库） ============
+# 根目录原始数据集（用户自备）
+/data/
+# 图片数据集目录（含 junction/副本）
+grading/data/NB-TCM-CHM/
+# 向量知识库（由 01_build_knowledge_base.py 重建）
+grading/data/vector_store/
+
+# ============ 运行时产物 ============
+grading/results/
+classifier/results/
+classifier/outputs/best_model.pth
+classifier/outputs/split.json
+
+# ============ 系统 ============
+.DS_Store
+Thumbs.db

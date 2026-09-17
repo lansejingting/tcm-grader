@@ -1,0 +1,166 @@
+{
+  "herb_identification": {
+    "total_samples": 5,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "kappa": 0.0,
+    "metrics_per_herb": {
+      "乌梅": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "confusion_matrix": [
+      {
+        "true_herb": "乌梅",
+        "乌梅": 5
+      }
+    ],
+    "top_confusion_pairs": []
+  },
+  "grading_consistency": {
+    "total_samples": 5,
+    "herb_ident_correct_count": 5,
+    "herb_ident_wrong_count": 0,
+    "grade_distribution": {
+      "all": {
+        "特优级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "特级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "甲级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "乙级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "等外品": {
+          "count": 0,
+          "ratio": 0.0
+        }
+      },
+      "correct_ident": {
+        "特优级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "特级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "甲级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "乙级": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "等外品": {
+          "count": 0,
+          "ratio": 0.0
+        }
+      },
+      "wrong_ident": {
+        "特优级": {
+          "count": 0,
+          "ratio": 0
+        },
+        "特级": {
+          "count": 0,
+          "ratio": 0
+        },
+        "甲级": {
+          "count": 0,
+          "ratio": 0
+        },
+        "乙级": {
+          "count": 0,
+          "ratio": 0
+        },
+        "等外品": {
+          "count": 0,
+          "ratio": 0
+        }
+      }
+    },
+    "score_variance": {
+      "all_samples": {
+        "mean": 0.95,
+        "std": 0.0,
+        "min": 0.95,
+        "max": 0.95,
+        "p25": 0.95,
+        "p50": 0.95,
+        "p75": 0.95
+      },
+      "herb_ident_correct": {
+        "mean": 0.95,
+        "std": 0.0,
+        "min": 0.95,
+        "max": 0.95,
+        "p25": 0.95,
+        "p50": 0.95,
+        "p75": 0.95
+      },
+      "herb_ident_wrong": {
+        "mean": 0,
+        "std": 0,
+        "min": 0,
+        "max": 0,
+        "p25": 0,
+        "p50": 0,
+        "p75": 0
+      }
+    },
+    "rule_consistency": {
+      "consistent": 5,
+      "inconsistent": 0,
+      "ratio": 1.0,
+      "inconsistent_examples": []
+    },
+    "review_flag_analysis": {
+      "triggered": 0,
+      "trigger_ratio": 0.0,
+      "reason_distribution": {}
+    },
+    "per_herb_grade_distribution": {
+      "乌梅": {
+        "total": 5,
+        "distribution": {
+          "特优级": {
+            "count": 0,
+            "ratio": 0.0
+          },
+          "特级": {
+            "count": 0,
+            "ratio": 0.0
+          },
+          "甲级": {
+            "count": 0,
+            "ratio": 0.0
+          },
+          "乙级": {
+            "count": 0,
+            "ratio": 0.0
+          },
+          "等外品": {
+            "count": 0,
+            "ratio": 0.0
+          }
+        }
+      }
+    }
+  }
+}
